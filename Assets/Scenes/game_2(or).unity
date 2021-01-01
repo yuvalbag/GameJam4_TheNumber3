@@ -493,9 +493,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc702c89a35688d45aa4a1836a76e49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state0: 97
-  state1: 115
-  state2: 100
+  state0: 113
+  state1: 119
+  state2: 101
   state: 0
   _horizontalMove: 0
   mPlayerSpeed: 4

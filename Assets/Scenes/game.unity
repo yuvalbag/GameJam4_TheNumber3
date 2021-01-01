@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 644584203}
   m_Layer: 0
   m_Name: leftBound
-  m_TagString: Untagged
+  m_TagString: leftBound
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,7 +167,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.1339376}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -178,7 +178,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 3.2678747}
   m_EdgeRadius: 0
 --- !u!1 &721639765
 GameObject:
@@ -298,8 +298,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _horizontalMove: 0
-  mPlayerSpeed: 5
-  maxMagnitude: 1
+  mPlayerSpeed: 10
+  maxMagnitude: 2
+  jumpPower: 250
 --- !u!50 &721639770
 Rigidbody2D:
   serializedVersion: 4
@@ -484,7 +485,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.1344999}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -495,7 +496,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 3.2689998}
   m_EdgeRadius: 0
 --- !u!1 &1765623131
 GameObject:
@@ -529,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 752d941147f63c74f98f2432ddefd4eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.001
+  speed: 0.0001
   player: {fileID: 721639769}
   offsetIndex: 10000
   count: 0

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -59,6 +60,14 @@ public class playerMovement : MonoBehaviour
             transform.localScale = rightRotation;
             _rigidbody.AddForce(Vector2.right * mPlayerSpeed);
         }
+    }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        //TODO NEED TO MOVE TO PLAYER LOGIC !!
+        if (other.transform.CompareTag("leftBound"))
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }

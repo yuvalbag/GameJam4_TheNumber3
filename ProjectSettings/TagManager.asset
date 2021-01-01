@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - block_state_0
+  - block_state_1
+  - block_state_2
   layers:
   - Default
   - TransparentFX

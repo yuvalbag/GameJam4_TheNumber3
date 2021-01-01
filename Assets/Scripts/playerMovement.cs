@@ -41,5 +41,10 @@ public class playerMovement : MonoBehaviour
         _horizontalMove = Input.GetAxis("Horizontal") * mPlayerSpeed;
         _animator.SetFloat("speed", Mathf.Abs(_horizontalMove));
         transform.position = new Vector3(_horizontalMove,-3.63f);
+
+        if (Mathf.Abs(_horizontalMove) <= 0.01f)
+        {
+            transform.position = new Vector3(_horizontalMove, -3.63f);
+        }
     }
 }

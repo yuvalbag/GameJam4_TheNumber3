@@ -7,13 +7,19 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour
 {
     private Animator _animator;
+    private Rigidbody2D _rigidbody;
     public float _horizontalMove = 0f;
     public float mPlayerSpeed = 4f;
+    public float maxMagnitude = 1f;
+    public float jumpPower = 100f;
+    private Vector2 leftRotation = new Vector2(-2.5f,2.5f);
+    private Vector2 rightRotation = new Vector2(2.5f,2.5f);
     
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -21,18 +27,15 @@ public class playerMovement : MonoBehaviour
         if (!_animator.GetBool("isJumping") && Input.GetKeyDown(KeyCode.Space))
         {
             _animator.SetBool("isJumping", true);
-            transform.DOJump(transform.position, 2, 1, 0.5f);
+            _rigidbody.AddForce(Vector2.up * jumpPower);
             StartCoroutine(land());
         }
     }
 
     IEnumerator land()
     {
-        yield return new WaitForSeconds(0.5f);
-
+        yield return new WaitForSeconds(1f);
         _animator.SetBool("isJumping", false);
-
-
     }
 
     // Update is called once per frame
@@ -40,11 +43,22 @@ public class playerMovement : MonoBehaviour
     {
         _horizontalMove = Input.GetAxis("Horizontal") * mPlayerSpeed;
         _animator.SetFloat("speed", Mathf.Abs(_horizontalMove));
-        transform.position = new Vector3(_horizontalMove,-3.63f);
 
-        if (Mathf.Abs(_horizontalMove) <= 0.01f)
+        if (Mathf.Abs(_horizontalMove) <= 0.01f && _rigidbody.velocity.magnitude <= 0.3f)
         {
-            transform.position = new Vector3(_horizontalMove, -3.63f);
+            //_rigidbody.velocity = Vector2.zero;
+            _rigidbody.AddForce(Vector2.left * mPlayerSpeed);
         }
+        else if (_horizontalMove < -0.1f && _rigidbody.velocity.magnitude <= maxMagnitude)
+        {
+            transform.localScale = leftRotation;
+            _rigidbody.AddForce(Vector2.left * mPlayerSpeed);
+        }
+        else if (_horizontalMove > 0.1f && _rigidbody.velocity.magnitude <= maxMagnitude)
+        {
+            transform.localScale = rightRotation;
+            _rigidbody.AddForce(Vector2.right * mPlayerSpeed);
+        }
+
     }
 }

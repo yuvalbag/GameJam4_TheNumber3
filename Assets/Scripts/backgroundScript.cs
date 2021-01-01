@@ -19,16 +19,9 @@ public class backgroundScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player._horizontalMove > 0.1f)
-        {
-            Vector2 offset = new Vector2(count * speed, 0);
-            _renderer.material.mainTextureOffset = offset;
-            count = (count+1) % offsetIndex;
-        }
-        else
-        {
-            //camera goes to player ??
-        }
-
+        //camera goes to player ??
+        Vector2 offset = new Vector2(count * speed, 0);
+        _renderer.material.mainTextureOffset = offset;
+        count = (count+1) % offsetIndex;
     }
 }

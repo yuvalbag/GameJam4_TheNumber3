@@ -35,6 +35,7 @@
         <e p="Scripts" t="Include">
           <e p="backgroundScript.cs" t="Include" />
           <e p="BlockLogic.cs" t="Include" />
+          <e p="BlockManager.cs" t="Include" />
           <e p="player_or.cs" t="Include" />
           <e p="playerMovement.cs" t="Include" />
           <e p="UIController.cs" t="Include" />

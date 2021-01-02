@@ -16,6 +16,15 @@ public class playerMovement : MonoBehaviour
     private Vector2 leftRotation = new Vector2(-2.5f,2.5f);
     private Vector2 rightRotation = new Vector2(2.5f,2.5f);
     
+    [Header("Key Bindings")]
+    public KeyCode state0 = KeyCode.Q;
+    public KeyCode state1 = KeyCode.W;
+    public KeyCode state2 = KeyCode.E;
+
+    [Header("Player Data")]
+    public int state = 0;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +40,26 @@ public class playerMovement : MonoBehaviour
             _rigidbody.AddForce(Vector2.up * jumpPower);
             StartCoroutine(land());
         }
+
+        //change states (temp code - unscaleable. make it into an array later
+        if (Input.GetKeyDown(state0))
+        {
+            state = 0;
+            GetComponent<SpriteRenderer>().material.color = Color.red;
+        }
+        if (Input.GetKeyDown(state1))
+        {
+            state = 1;
+            GetComponent<SpriteRenderer>().material.color = Color.blue;
+
+        }
+        if (Input.GetKeyDown(state2))
+        {
+            state = 2;
+            GetComponent<SpriteRenderer>().material.color = Color.green;
+
+        }
+
     }
 
     IEnumerator land()
@@ -69,5 +98,28 @@ public class playerMovement : MonoBehaviour
         {
             SceneManager.LoadScene(2);
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("collided, player");
+        if (collision.gameObject.tag.StartsWith("block"))
+        { //state block collided
+            BlockLogic script  = collision.GetComponent < BlockLogic > ();
+            Debug.Log("collision detected. other's id = " + script.blockState);
+            if(state != script.blockState)
+            {
+                die();
+            }
+        }
+
+    }
+
+    private void die()
+    {
+        //NEED TO CHANGE THIS FUNCTION
+        Debug.Log("Death");
+        Time.timeScale = 0; //freeze
+        SceneManager.LoadScene(2);//move to game-over scene
     }
 }

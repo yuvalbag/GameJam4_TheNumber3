@@ -117,9 +117,7 @@ public class playerMovement : MonoBehaviour
 
     private void die()
     {
-        //NEED TO CHANGE THIS FUNCTION
         Debug.Log("Death");
-        Time.timeScale = 0; //freeze
         SceneManager.LoadScene(2);//move to game-over scene
     }
 }

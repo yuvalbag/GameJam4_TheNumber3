@@ -22,8 +22,13 @@
     <list default="true" id="6fab6758-2e12-4314-a990-efe5b496fd56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJam4_TheNumber3/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJam4_TheNumber3/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GameJam4_TheNumber3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameJam4_TheNumber3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/temp_blocks.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/temp_blocks.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/endScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/endScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/game_2(or).unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/game_2(or).unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/openScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/openScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/playerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/playerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +99,7 @@
       <updated>1609432920681</updated>
       <workItem from="1609432933799" duration="2003000" />
       <workItem from="1609485582684" duration="15478000" />
-      <workItem from="1609584755931" duration="583000" />
+      <workItem from="1609584755931" duration="1894000" />
     </task>
     <servers />
   </component>

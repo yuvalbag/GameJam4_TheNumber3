@@ -150,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323801982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: -3.5, z: 0}
+  m_LocalPosition: {x: 10.5, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1235749000}
@@ -219,9 +219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8cd11da50d1af41a5555670ffaf825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
-  movementDirection: 0.1
+  movementSpeed: 5
+  movementDirection: 1
   blockState: 0
+  blockEnabled: 0
 --- !u!61 &323801986
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -638,6 +639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1235749000}
+  - component: {fileID: 1235749001}
   m_Layer: 0
   m_Name: temp_blocks
   m_TagString: Untagged
@@ -662,6 +664,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1235749001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235748999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6641e354eb4a843b73030d06ace8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redBlock: {fileID: 1780952972}
+  amountOfRedBlocks: 1
+  greenBlock: {fileID: 1896718928}
+  amountOfGreenBlocks: 3
+  blueBlock: {fileID: 323801982}
+  amountOfBlueBlocks: 2
+  timeToActivateBlock: 1.5
+  blocks: []
+  blocksAmount: 
+  blockTypes: []
+  totalAmountOfBlocks: 0
+  rightEdgeOfView: {x: 0, y: 0}
+  maxLocationToSpawn: {x: 0, y: 0}
+  timer: 0
 --- !u!1 &1505339247
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,7 +810,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780952972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: -3.5, z: 0}
+  m_LocalPosition: {x: 10.5, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1235749000}
@@ -851,9 +879,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd8cd11da50d1af41a5555670ffaf825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 2
+  movementSpeed: 8
   movementDirection: 1
   blockState: 0
+  blockEnabled: 0
 --- !u!61 &1780952976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -907,7 +936,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896718928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -3.5, z: 0}
+  m_LocalPosition: {x: 10.5, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1235749000}
@@ -977,8 +1006,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 2
-  movementDirection: 0.1
+  movementDirection: 1
   blockState: 0
+  blockEnabled: 0
 --- !u!61 &1896718932
 BoxCollider2D:
   m_ObjectHideFlags: 0

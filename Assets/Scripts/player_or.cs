@@ -73,11 +73,10 @@ public class player_or: MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collided, player");
         if (collision.gameObject.tag.StartsWith("block"))
         { //state block collided
             BlockLogic script  = collision.GetComponent < BlockLogic > ();
-            Debug.Log("collision detected. other's id = " + script.blockState);
+            Debug.Log("collision player-block detected. block's state = " + script.blockState);
             if(state != script.blockState)
             {
                 die();
@@ -90,6 +89,6 @@ public class player_or: MonoBehaviour
     {
         //NEED TO CHANGE THIS FUNCTION
         Debug.Log("Death");
-        Time.timeScale = 0; //freeze
+       // Time.timeScale = 0; //freeze
     }
 }

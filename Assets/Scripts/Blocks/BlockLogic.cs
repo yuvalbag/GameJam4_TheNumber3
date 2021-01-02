@@ -10,6 +10,7 @@ public class BlockLogic : MonoBehaviour
 
     [Header("Block Data")]
     public int blockState; //expected power\state player is using to pass this block
+    public bool blockEnabled;
 
     private Vector2 left; //location of left edge of screen
     private Vector2 right; //location of right edge of screen
@@ -20,14 +21,17 @@ public class BlockLogic : MonoBehaviour
         left = Camera.main.ViewportToWorldPoint(new Vector2(0.0f, 0.0f)); //location of left edge of screen
         right = Camera.main.ViewportToWorldPoint(new Vector2(1.0f, 0.0f)); //location of right edge of screen
         string tag = gameObject.tag;
-        Debug.Log("id is " + tag.Substring(tag.Length - 1));
         blockState = int.Parse(tag.Substring(tag.Length - 1));
+        blockEnabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        updateLocation(Time.deltaTime);
+        if (blockEnabled)
+        {
+            updateLocation(Time.deltaTime);
+        }
     }
 
     void updateLocation(float deltaTime)
@@ -39,9 +43,10 @@ public class BlockLogic : MonoBehaviour
         Vector2 locationOfRightEdge = new Vector2(transform.position.x + transform.localScale.x / 2, transform.position.y);
         Vector3 pos = Camera.main.WorldToViewportPoint(locationOfRightEdge);
         if (pos.x < 0.0f) {
-            Debug.Log("I am left of the camera's view.");
+            //Debug.Log("block exited screen");
             //cycle to right part of screen
-            transform.position = new Vector2(right.x, transform.position.y);
+            transform.position = new Vector2(right.x + transform.localScale.x / 2, transform.position.y);
+            blockEnabled = false; //leave block manager to decided when to move this block
         };
     }
 }

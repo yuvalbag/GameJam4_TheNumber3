@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: [leftBound, block_state_0, block_state_1, block_state_2]
+  tags:
+  - leftBound
+  - block_state_0
+  - block_state_1
+  - block_state_2
+  - Scenery
   layers:
   - Default
   - TransparentFX
@@ -11,8 +16,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - bounds
+  - platforms
   - 
   - 
   - 
@@ -38,6 +43,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 2955302309
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

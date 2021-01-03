@@ -77,7 +77,8 @@ public class playerMovement : MonoBehaviour
         if (Mathf.Abs(_horizontalMove) <= 0.01f && _rigidbody.velocity.magnitude <= 0.3f)
         {
             //_rigidbody.velocity = Vector2.zero;
-            _rigidbody.AddForce(Vector2.left * mPlayerSpeed);
+            transform.Translate(Time.deltaTime * 0.5f * -1 * GameControl.instance.globalSpeed, 0, 0,
+                            Camera.main.transform);
         }
         else if (_horizontalMove < -0.1f && _rigidbody.velocity.magnitude <= maxMagnitude)
         {

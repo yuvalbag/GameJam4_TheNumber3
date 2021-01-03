@@ -9,6 +9,8 @@ TagManager:
   - block_state_1
   - block_state_2
   - Scenery
+  - midBlock
+  - colors
   layers:
   - Default
   - TransparentFX
@@ -18,8 +20,8 @@ TagManager:
   - UI
   - bounds
   - platforms
-  - 
-  - 
+  - player
+  - blocker
   - 
   - 
   - 

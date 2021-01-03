@@ -4,6 +4,8 @@ using System.Collections;
 public class ColumnPool : MonoBehaviour 
 {
 	public GameObject[] columnPrefab;									//The column game object.
+	public GameObject mColors;
+	private GameObject colors;
 	public int columnPoolSize = 5;									//How many columns to keep on standby.
 	public float spawnRate = 3f;									//How quickly columns spawn.
 	public float columnMin = -3.5f;									//Minimum y value of the column position.
@@ -17,13 +19,14 @@ public class ColumnPool : MonoBehaviour
 
 	private float timeSinceLastSpawned;
 	private float lastY;
+	private int timeToColors = 0;
 
 
 	void Start()
 	{
 		timeSinceLastSpawned = 0f;
 		lastY = columnMin;
-
+		colors = Instantiate(mColors, objectPoolPosition, Quaternion.identity);
 		//Initialize the columns collection.
 		columns = new GameObject[columnPoolSize];
 		//Loop through the collection... 
@@ -58,6 +61,13 @@ public class ColumnPool : MonoBehaviour
 			{
 				currentColumn = 0;
 			}
+
+			if (timeToColors == 4)
+			{
+				colors.transform.position = new Vector2(spawnXPosition, spawnYPosition+0.5f);
+			}
+
+			timeToColors = (timeToColors + 1) % 5;
 		}
 	}
 }

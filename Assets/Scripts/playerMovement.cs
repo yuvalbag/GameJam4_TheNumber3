@@ -28,6 +28,7 @@ public class playerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<SpriteRenderer>().material.color = Color.red;
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
     }
@@ -77,7 +78,7 @@ public class playerMovement : MonoBehaviour
         if (Mathf.Abs(_horizontalMove) <= 0.01f && _rigidbody.velocity.magnitude <= 0.3f)
         {
             //_rigidbody.velocity = Vector2.zero;
-            transform.Translate(Time.deltaTime * 0.5f * -1 * GameControl.instance.globalSpeed, 0, 0,
+            transform.Translate(Time.deltaTime * 0.5f * -1 * 2f * GameControl.instance.globalSpeed, 0, 0,
                             Camera.main.transform);
         }
         else if (_horizontalMove < -0.1f && _rigidbody.velocity.magnitude <= maxMagnitude)
@@ -104,18 +105,54 @@ public class playerMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("collided, player");
-        if (collision.gameObject.tag.StartsWith("block"))
-        { //state block collided
-            BlockLogic script  = collision.GetComponent < BlockLogic > ();
-            Debug.Log("collision detected. other's id = " + script.blockState);
-            if(state != script.blockState)
+        if (!gameObject.CompareTag("colors"))
+        {
+            if (collision.gameObject.tag.StartsWith("block"))
             {
-                die();
+                //state block collided
+                BlockLogic script = collision.GetComponent<BlockLogic>();
+                Debug.Log("collision detected. other's id = " + script.blockState);
+                if (state != script.blockState)
+                {
+                    die();
+                }
+            }
+            else if (collision.gameObject.CompareTag("colors"))
+            {
+                StartCoroutine(flickerPlayer());
             }
         }
 
     }
 
+
+    IEnumerator flickerPlayer()
+    {
+        gameObject.tag = "colors";
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        for (int i = 0; i < 10; i++)
+        {
+            sr.material.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            sr.material.color = Color.blue;
+            yield return new WaitForSeconds(0.1f);
+            sr.material.color = Color.green;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        if (state == 0)
+        {
+            sr.material.color = Color.red;
+        } else if (state == 1)
+        {
+            sr.material.color = Color.blue;
+        } else if (state == 2)
+        {
+            sr.material.color = Color.green;
+        }
+        gameObject.tag = "Player";
+    }
     private void die()
     {
         Debug.Log("Death");
